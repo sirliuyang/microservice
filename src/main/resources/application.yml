@@ -6,7 +6,7 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+    preferIpAddress: false
     hostname: localhost
   client:
     #表示是否将自己注册到Eureka Server
@@ -24,13 +24,14 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+    preferIpAddress: false
     hostname: peer1
+    appname: test
   client:
     #表示是否将自己注册到Eureka Server
     registerWithEureka: false
     #表示是否从Eureka Server获取注册信息
-    fetchRegistry: false
+    fetchRegistry: true
     #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔
     serviceUrl.defaultZone: http://peer2:8762/eureka/
 
@@ -43,13 +44,14 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+    preferIpAddress: false
     hostname: peer2
+    appname: test
   client:
     #表示是否将自己注册到Eureka Server
-    registerWithEureka: false
+    registerWithEureka: true
     #表示是否从Eureka Server获取注册信息
-    fetchRegistry: false
+    fetchRegistry: true
     #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔
     serviceUrl.defaultZone: http://peer1:8761/eureka/
 
